@@ -56,7 +56,7 @@ We are analyzing the Ames Housing dataset which contains detailed information ab
 
 **The Issue:** Zip codes (50010, 50011, 50012, 50013) are categorical variables representing discrete geographic areas, i.e. neighborhoods. When treated as numerical, the tree might split on "zipCode > 50012.5" - which has no meaningful interpretation for house prices.  Zip codes are non-ordinal categorical variables meaning they have no inherent order that aids house price prediction (i.e. zip code 99999 is not the priceiest zip code). -->
 
-## Data Loading and Model Building
+<!-- ## Data Loading and Model Building
 
 ### Python
 
@@ -160,7 +160,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-<!-- ## Critical Analysis: The Encoding Problem
+## Critical Analysis: The Encoding Problem
 
 ::: {.callout-warning}
 ## ⚠️ The Problem Revealed
@@ -178,7 +178,7 @@ plt.show()
 
 Now let's repeat the analysis with zipCode properly encoded as categorical variables to see the difference.
 
-**Python Approach:** One-hot encode zipCode (create dummy variables for each zip code) -->
+**Python Approach:** One-hot encode zipCode (create dummy variables for each zip code)
 
 ### Categorical Encoding Analysis
 
@@ -242,7 +242,7 @@ plot_tree(tree_model_cat,
           max_depth=4)
 plt.title("Decision Tree (zipCode One-Hot Encoded)")
 plt.tight_layout()
-plt.show()
+# plt.show()
 ```
 
 ### Feature Importance: Categorical zipCode
@@ -264,7 +264,7 @@ plt.title('Feature Importance (zipCode One-Hot Encoded)')
 plt.gca().invert_yaxis()
 plt.tight_layout()
 plt.show()
-```
+``` -->
 
 <!-- ## Challenge Requirements 📋
 
@@ -465,7 +465,7 @@ For data scientists working with real estate data (or any domain with categorica
 
 While scikit-learn's `DecisionTreeRegressor` remains popular and well-documented, these modern alternatives demonstrate that the Python ecosystem has evolved to address the categorical variable handling limitations. For new projects involving categorical data, CatBoost or LightGBM may be more appropriate choices than traditional sklearn decision trees.
 
-## Conclusion
+## <span style="color:brown; font-style:italic;">Conclusion</span> 
 
 This analysis demonstrates that **proper variable encoding is essential for accurate decision tree analysis.** Treating categorical variables like zip codes as numerical values leads to meaningless splits and underestimates their true importance. When properly encoded (using one-hot encoding in Python or native categorical support in R), categorical variables reveal their significance as predictors.
 

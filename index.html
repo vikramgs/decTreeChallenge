@@ -123,47 +123,49 @@ We are analyzing the Ames Housing dataset which contains detailed information ab
 **Key Question:** What happens when we treat zipCode as a numerical variable in a decision tree? How does this affect feature importance interpretation?
 
 **The Issue:** Zip codes (50010, 50011, 50012, 50013) are categorical variables representing discrete geographic areas, i.e. neighborhoods. When treated as numerical, the tree might split on "zipCode > 50012.5" - which has no meaningful interpretation for house prices.  Zip codes are non-ordinal categorical variables meaning they have no inherent order that aids house price prediction (i.e. zip code 99999 is not the priceiest zip code). -->
-<section id="data-loading-and-model-building" class="level2">
-<h2 class="anchored" data-anchor-id="data-loading-and-model-building">Data Loading and Model Building</h2>
-<section id="python" class="level3">
-<h3 class="anchored" data-anchor-id="python">Python</h3>
-<div id="load-and-model-python" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-stdout">
-<pre><code>Model built with 8 terminal nodes</code></pre>
-</div>
-</div>
-</section>
-</section>
-<section id="tree-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="tree-visualization">Tree Visualization</h2>
-<section id="python-1" class="level3">
-<h3 class="anchored" data-anchor-id="python-1">Python</h3>
-<div id="cell-visualize-tree-python" class="cell" data-fig-height="6" data-fig-width="10" data-execution_count="2">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/visualize-tree-python-output-1.png" id="visualize-tree-python" width="942" height="566" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>:::</p>
-</section>
-</section>
-<section id="feature-importance-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="feature-importance-analysis">Feature Importance Analysis</h2>
-<section id="python-2" class="level3">
-<h3 class="anchored" data-anchor-id="python-2">Python</h3>
-<div id="cell-importance-plot-python" class="cell" data-fig-height="5" data-fig-width="8" data-execution_count="4">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/importance-plot-python-output-1.png" id="importance-plot-python" width="758" height="470" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<!-- ## Critical Analysis: The Encoding Problem
+<!-- ## Data Loading and Model Building
+
+### Python
+
+::: {#load-and-model-python .cell execution_count=1}
+
+::: {.cell-output .cell-output-stdout}
+```
+Model built with 8 terminal nodes
+```
+:::
+:::
+
+
+## Tree Visualization
+
+### Python
+
+::: {#cell-visualize-tree-python .cell fig-height='6' fig-width='10' execution_count=2}
+
+::: {.cell-output .cell-output-display}
+![](index_files/figure-html/visualize-tree-python-output-1.png){#visualize-tree-python width=942 height=566}
+:::
+:::
+
+
+:::
+
+## Feature Importance Analysis
+
+### Python
+
+
+
+::: {#cell-importance-plot-python .cell fig-height='5' fig-width='8' execution_count=4}
+
+::: {.cell-output .cell-output-display}
+![](index_files/figure-html/importance-plot-python-output-1.png){#importance-plot-python width=758 height=470}
+:::
+:::
+
+
+## Critical Analysis: The Encoding Problem
 
 ::: {.callout-warning}
 ## ⚠️ The Problem Revealed
@@ -181,43 +183,44 @@ We are analyzing the Ames Housing dataset which contains detailed information ab
 
 Now let's repeat the analysis with zipCode properly encoded as categorical variables to see the difference.
 
-**Python Approach:** One-hot encode zipCode (create dummy variables for each zip code) -->
-</section>
-<section id="categorical-encoding-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="categorical-encoding-analysis">Categorical Encoding Analysis</h3>
-</section>
-<section id="python-3" class="level3">
-<h3 class="anchored" data-anchor-id="python-3">Python</h3>
-</section>
-<section id="tree-visualization-categorical-zipcode" class="level3">
-<h3 class="anchored" data-anchor-id="tree-visualization-categorical-zipcode">Tree Visualization: Categorical zipCode</h3>
-</section>
-<section id="python-4" class="level3">
-<h3 class="anchored" data-anchor-id="python-4">Python</h3>
-<div id="cell-visualize-tree-cat-python" class="cell" data-fig-height="6" data-fig-width="10" data-execution_count="6">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/visualize-tree-cat-python-output-1.png" id="visualize-tree-cat-python" width="938" height="566" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="feature-importance-categorical-zipcode" class="level3">
-<h3 class="anchored" data-anchor-id="feature-importance-categorical-zipcode">Feature Importance: Categorical zipCode</h3>
-</section>
-<section id="python-5" class="level3">
-<h3 class="anchored" data-anchor-id="python-5">Python</h3>
-<div id="cell-importance-plot-cat-python" class="cell" data-fig-height="5" data-fig-width="8" data-execution_count="7">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/importance-plot-cat-python-output-1.png" id="importance-plot-cat-python" width="757" height="470" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+**Python Approach:** One-hot encode zipCode (create dummy variables for each zip code)
+
+### Categorical Encoding Analysis
+
+### Python
+
+
+### Tree Visualization: Categorical zipCode
+
+### Python
+
+::: {#cell-visualize-tree-cat-python .cell fig-height='6' fig-width='10' execution_count=6}
+
+::: {.cell-output .cell-output-display}
+![](index_files/figure-html/visualize-tree-cat-python-output-1.png){#visualize-tree-cat-python width=938 height=566}
+:::
+:::
+
+
+### Feature Importance: Categorical zipCode
+
+### Python
+#| label: importance-plot-cat-python
+#| echo: false
+#| fig-width: 8
+#| fig-height: 5
+
+# Plot feature importance for categorical zipCode
+plt.figure(figsize=(8, 5))
+plt.barh(range(len(importance_cat_df)), importance_cat_df['Importance'], 
+         color='darkgreen', alpha=0.7)
+plt.yticks(range(len(importance_cat_df)), importance_cat_df['Feature'])
+plt.xlabel('Importance Score')
+plt.title('Feature Importance (zipCode One-Hot Encoded)')
+plt.gca().invert_yaxis()
+plt.tight_layout()
+plt.show()
+``` -->
 <!-- ## Challenge Requirements 📋
 
 ### Minimum Requirements for Any Points on Challenge
@@ -321,8 +324,6 @@ Now let's repeat the analysis with zipCode properly encoded as categorical varia
 :::
 
 ### Questions to Answer for 75% Grade on Challenge -->
-</section>
-</section>
 <section id="discussion-questions-for-challenge" class="level2">
 <h2 class="anchored" data-anchor-id="discussion-questions-for-challenge"><strong>Discussion Questions for Challenge:</strong></h2>
 <p>Run a bivariate regression of Anxiety on Time. What are the estimated coefficients? How do they compare to the true relationship?</p>
@@ -389,7 +390,7 @@ Now let's repeat the analysis with zipCode properly encoded as categorical varia
 <p>While scikit-learn’s <code>DecisionTreeRegressor</code> remains popular and well-documented, these modern alternatives demonstrate that the Python ecosystem has evolved to address the categorical variable handling limitations. For new projects involving categorical data, CatBoost or LightGBM may be more appropriate choices than traditional sklearn decision trees.</p>
 </section>
 <section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<h2 class="anchored" data-anchor-id="conclusion"><span style="color:brown; font-style:italic;">Conclusion</span></h2>
 <p>This analysis demonstrates that <strong>proper variable encoding is essential for accurate decision tree analysis.</strong> Treating categorical variables like zip codes as numerical values leads to meaningless splits and underestimates their true importance. When properly encoded (using one-hot encoding in Python or native categorical support in R), categorical variables reveal their significance as predictors.</p>
 <p>The comparison between R’s <code>rpart</code> and Python’s <code>sklearn.tree.DecisionTreeRegressor</code> reveals a key difference: R handles categorical variables natively, while sklearn requires preprocessing that can fragment feature importance. However, modern Python libraries like CatBoost and LightGBM now offer native categorical support, bridging this gap.</p>
 <p>For data scientists, the choice of encoding method and modeling library directly impacts model interpretability and the insights we can extract. <strong>Getting the fundamentals right—properly encoding categorical variables—is critical for building accurate, trustworthy models that provide meaningful business insights.</strong></p>
